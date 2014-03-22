@@ -26,18 +26,18 @@ function r()
 
     if [ "$1" == "pre" ]; then
         bundle exec rake assets:precompile;
-        exit;
+        return;
     fi;
 
     if [ "$1" == "-pre" ]; then
         bundle exec rake assets:clean;
         bundle exec rake assets:precompile;
-        exit;
+        return;
     fi;
 
     if [ "$1" == "mig" ]; then
         bundle exec rake db:migrate;
-        exit;
+        return;
     fi;
 
     # No shortcuts? Go back to normality.
@@ -46,9 +46,9 @@ function r()
     fi;
 
     if [ -z $INPUT ] || [ "$INPUT" == "" ]; then # B
-        exit; # Empty file
+        return; # Empty file
     else
-        if [ "$INPUT" == "/" ] && [ ! [$(git rev-parse --show-cdup) == ""] ]; then # C
+        if [ "$INPUT" == "/" ] && [ $(git rev-parse --show-cdup) != "" ]; then # C
             cd $(git rev-parse --show-cdup); # Take me back to the root of the project.
         else
             if [ -d ./$INPUT ]; then # D
@@ -66,13 +66,15 @@ function r()
                     fi; # /F
                 fi; # /E
 
-                if [ "$(type -t subl)" == "file" ]; then # A
-                    subl "$FILE" # Sublime, hell yeah
-                elif [ "$(type -t atom)" == "file" ]; then
-                    atom "$FILE" # Atom support, you say?
-                else
-                    vim "$FILE" # vim rocks!
-                fi; # /A
+                if [ ! -z "$FILE" ]; then
+                    if [ "$(type -t subl)" == "file" ]; then # A
+                        subl "$FILE" # Sublime, hell yeah
+                    elif [ "$(type -t atom)" == "file" ]; then
+                        atom "$FILE" # Atom support, you say?
+                    else
+                        vim "$FILE" # vim rocks!
+                    fi; # /A
+                fi;
 
             fi; # /D
         fi; # /C
