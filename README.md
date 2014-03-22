@@ -1,6 +1,6 @@
 ![Logo](http://bih.github.io/rails-r/images/logo.png)
 
-# Rails-R: Navigation in Rails, made simple.
+# Navigation in Rails, made simple.
 
 View the website for Rails-R [by clicking here](http://bih.github.io/rails-r/).
 
