@@ -13,7 +13,7 @@ function r()
     if [ "$1" == "css" ]; then INPUT="app/assets/stylesheets"$2; fi;
     if [ "$1" == "js" ]; then INPUT="app/assets/javascripts"$2; fi;
     if [ "$1" == "img" ]; then INPUT="app/assets/images"$2; fi;
-    if [ "$1" == "public" ]; then INPUT="public"$2; fi; # Saves only one character, but that's time that can be used to kick some fresh Java-looking ass. /jk
+    if [ "$1" == "public" ]; then INPUT="public"$2; fi; # Saves only one character, but yolo.
     if [ "$1" == "gems" ]; then INPUT="Gemfile"; fi;
     if [ "$1" == "readme" ]; then INPUT="README*"; fi;
     if [ "$1" == "env" ]; then INPUT="config/environments"$2; fi;
@@ -45,8 +45,8 @@ function r()
         INPUT=$1
     fi;
 
-    if [ -z $INPUT ]; then # B
-        exit; # Folder doesn't exist? Return nothing.
+    if [ -z $INPUT ] || [ "$INPUT" == "" ]; then # B
+        exit; # Empty file
     else
         if [ "$INPUT" == "/" ] && [ ! [$(git rev-parse --show-cdup) == ""] ]; then # C
             cd $(git rev-parse --show-cdup); # Take me back to the root of the project.
