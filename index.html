@@ -1,0 +1,234 @@
+<!doctype html>
+<head>
+	<title>Rails-R: Navigation through Rails, made simple.</title>
+
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Verdana';
+	font-size: 16px;
+	color: #333;
+}
+header {
+	display: block;
+	background: #e6625b;
+	padding: 50px;
+}
+header h1 {
+	margin: 0px;
+	font-size: 12px;
+	color: transparent;
+	background: url(./images/clear.png) no-repeat center center;
+	background-size: contain;
+	width: 100%;
+	height: 127px;
+}
+section {
+	max-width: 800px;
+	margin: 0 auto;
+}
+section.installation {
+	background: #e6625b;
+	border-radius: 10px;
+	padding: 5px;
+}
+section h1 {
+	font-size: 32px;
+	text-align: center;
+	color: #333;
+}
+section.installation h1 {
+	color: #FFF;
+}
+section h1 span {
+	color: #e6625b;
+}
+section p {
+	font-size: 18px;
+	line-height: 26px;
+}
+section.installation p {
+	color: #fff;
+	color: rgba(0, 0, 0, 0.75);
+	text-align: center;
+}
+section p.introducing {
+	color: #e6625b;
+}
+section p span.introducing {
+	color: #e6625b;
+	font-weight: bold;
+}
+section p a {
+	color: #e6625b;
+	text-decoration: none;
+}
+section code {
+	display: inline;
+	background: #EEE;
+	font-size: 16px;
+	padding: 2px 4px;
+}
+section.installation textarea {
+	display: block;
+	overflow: auto;
+	resize: none;
+	outline: none;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Verdana';
+	text-align: center;
+	font-size: 17px;
+	min-height: 31px;
+	padding: 7px 0;
+	border: 0;
+	width: 100%;
+	text-align: center;
+	background: transparent;
+	color: #fff;
+}
+.clear {
+	overflow: none;
+	clear: both;
+}
+section.commands p {
+	text-align: center;
+	padding: 10px 0;
+}
+section.commands .command {
+	width: 50%;
+	float: left;
+}
+section.commands .command .left {
+	position: relative;
+	width: 50%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	padding: 10px 0;
+}
+section.commands .command .left p {
+	padding: 0 5px;
+	margin: 0;
+	font-size: 17px;
+}
+section.commands .command .right {
+	position: relative;
+	width: 50%;
+	display: inline-block;
+}
+section.commands .command .right input {
+	width: 80%;
+	height: 100%;
+	font-family: 'Open Sans', 'Helvetica Neue', 'Arial', 'Verdana';
+	font-size: 17px;
+	padding: 10px 10%;
+	border: 0;
+	background: #e6625b;
+	color: #fff;
+	text-align: left;
+	outline: none;
+	resize: none;
+}
+footer {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px 0;
+	text-align: center;
+	color: #e6625b;
+}
+footer a {
+	color: #333;
+	text-decoration: none;
+}
+footer a:hover {
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<header>
+	<h1>Rails-R</h1>
+</header>
+
+<section>
+	<h1>Navigation through <span>Rails</span>, made simple.</h1>
+	<p>Tired of typing <code>$ cd /app/assets/javascripts</code> every time you want to access your JavaScript files in Rails, or any other folder for that matter? The folder structure makes sense for <a href='http://en.wikipedia.org/wiki/Model-view-controller'>the MVC philosophy</a>, but the navigation through Rails is tedious. <span class="introducing">Introducing Rails-R!</span></p>
+
+	<p class="introducing"><strong>Rails-R is a script written in Bash that lets you navigate across your Rails project in short commands.</strong> Your Rails project must use Git (used to figure out the root of your Rails project).</p>
+</section>
+
+<section class="installation">
+	<h1>Simple Installation</h1>
+	<p>Run the following command in your Terminal (Mac OS X only)</p>
+	<textarea id="copy" readonly onclick="this.select()">$ curl http://bih.github.io/rails-r/download/latest.sh >> ~/.bash_profile && source ~/.bash_profile</textarea>
+</section>
+
+<section class="commands">
+	<h1>Navigation Commands</h1>
+
+	<div class="command">
+		<div class="left"><p>Rails <b>root</b></p></div>
+		<div class="right"><input type="text" value="$ r /" readonly onclick="this.select()" /></div>
+	</div>
+	
+	<div class="command">
+		<div class="left"><p>Rails <b>controllers</b></p></div>
+		<div class="right"><input type="text" value="$ r con" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Rails <b>models</b></p></div>
+		<div class="right"><input type="text" value="$ r mod" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Rails <b>views</b></p></div>
+		<div class="right"><input type="text" value="$ r view" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Assets <b>stylesheets</b></p></div>
+		<div class="right"><input type="text" value="$ r css" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Assets <b>javascripts</b></p></div>
+		<div class="right"><input type="text" value="$ r js" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Assets <b>images</b></p></div>
+		<div class="right"><input type="text" value="$ r img" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Open <b>Gemfile</b></p></div>
+		<div class="right"><input type="text" value="$ r gems" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Open <b>routes.rb</b></p></div>
+		<div class="right"><input type="text" value="$ r routes" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="command">
+		<div class="left"><p>Precompile <b>assets</b></p></div>
+		<div class="right"><input type="text" value="$ r pre" readonly onclick="this.select()" /></div>
+	</div>
+
+	<div class="clear"></div>
+
+	<p>See more commands by viewing the <a href='https://github.com/bih/rails-r/blob/gh-pages/download/latest.sh'>raw source</a>.</p>
+
+</section>
+
+<footer>
+	Licensed under the <a href='http://bih.mit-license.org/'>MIT License</a>. 
+	Built by <a href='http://github.com/bih'>Bilawal Hameed</a> in 2014.
+</footer>
+
+<a href="https://github.com/bih/rails-r"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+</body>
+</html>
