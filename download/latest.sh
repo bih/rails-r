@@ -1,9 +1,14 @@
+
+
 # Rails R, written in Bash by Bilawal Hameed.
 # Contribute: https://github.com/bih/rails-r
 # Released under the MIT license.
 
 function r()
 {
+    # Reset everything
+    INPUTCMD=""
+
     # Shortcuts
     if [ "$1" == "con" ]; then INPUTCMD="app/controllers"$2; fi;
     if [ "$1" == "mod" ]; then INPUTCMD="app/models"$2; fi;
